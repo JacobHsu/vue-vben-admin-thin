@@ -22,6 +22,10 @@ remove .husky pre-commit
 
 @ant-design/icons-vue [Icon](https://www.antdv.com/components/icon/)
 
+## NPM
+
+axios [index.d.ts](https://github.com/axios/axios/blob/master/index.d.ts)  interface AxiosRequestConfig
+
 ## Feature
 
 - **State of The Art Development**：Use front-end front-end technology development such as Vue3/vite2
