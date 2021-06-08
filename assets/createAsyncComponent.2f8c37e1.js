@@ -1,0 +1,1 @@
+import{ba as e,q as o,aG as a}from"./vendor.3fb9be1a.js";import{a6 as n}from"./index.3b55b5e4.js";function r(r,s={}){const{size:t="small",delay:i=100,timeout:m=3e4,loading:l=!1,retry:d=!0}=s;return e({loader:r,loadingComponent:l?o(a,{spinning:!0,size:t},null):void 0,timeout:m,delay:i,onError:d?(e,o,a,n)=>{e.message.match(/fetch/)&&n<=3?o():a()}:n})}export{r as c};
