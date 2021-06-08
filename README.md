@@ -18,6 +18,10 @@ Vue Vben Admin is a free and open source middle and back-end template. Using the
 .husky [what-is-commitlint](https://github.com/conventional-changelog/commitlint/#what-is-commitlint)
 remove .husky pre-commit
 
+## ant-design
+
+@ant-design/icons-vue [Icon](https://www.antdv.com/components/icon/)
+
 ## Feature
 
 - **State of The Art Development**：Use front-end front-end technology development such as Vue3/vite2
