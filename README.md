@@ -26,6 +26,10 @@ remove .husky pre-commit
 
 axios [index.d.ts](https://github.com/axios/axios/blob/master/index.d.ts)  interface AxiosRequestConfig
 
+## Deploy
+
+[github-actions-demo](https://github.com/JacobHsu/github-actions-demo/blob/master/.github/workflows/ci.yml)
+
 ## Feature
 
 - **State of The Art Development**：Use front-end front-end technology development such as Vue3/vite2
