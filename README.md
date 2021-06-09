@@ -25,6 +25,8 @@ remove .husky pre-commit
 ## NPM
 
 axios [index.d.ts](https://github.com/axios/axios/blob/master/index.d.ts)  interface AxiosRequestConfig
+echarts `src\hooks\web\useECharts.ts`
+[Apache ECharts](https://echarts.apache.org/) Basic area chart
 
 ## Build
 

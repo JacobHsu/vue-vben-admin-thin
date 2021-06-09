@@ -51,3 +51,47 @@ vite.config.ts
 
 http://localhost:3100/basic-api/getUserInfo
 {"code":-1,"result":null,"message":"Invalid token","type":"error"}
+
+## store
+
+store\modules\user.ts
+
+```js
+import { getUserInfo, loginApi } from '/@/api/sys/user';
+   async login(
+      params: LoginParams & {
+        goHome?: boolean;
+        mode?: ErrorMessageMode;
+      }
+    ): Promise<GetUserInfoModel | null> {
+      try {
+        const { goHome = true, mode, ...loginParams } = params;
+        const data = await loginApi(loginParams, mode);
+        const { token } = data;
+        const userInfo = await this.getUserInfoAction();
+
+   async getUserInfoAction() {
+      const userInfo = await getUserInfo();
+      const { roles } = userInfo;
+      const roleList = roles.map((item) => item.value) as RoleEnum[];
+      this.setUserInfo(userInfo);
+      this.setRoleList(roleList);
+      return userInfo;
+    },
+```
+
+src\api\sys\user.ts
+
+```js
+export function loginApi(params: LoginParams, mode: ErrorMessageMode = 'modal') {
+  return defHttp.post<LoginResultModel>(
+    {
+      url: Api.Login,
+      params,
+    },
+    {
+      errorMessageMode: mode,
+    }
+  );
+}
+```

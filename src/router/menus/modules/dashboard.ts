@@ -9,6 +9,10 @@ const menu: MenuModule = {
 
     children: [
       {
+        path: 'home',
+        name: t('routes.dashboard.home'),
+      },
+      {
         path: 'analysis',
         name: t('routes.dashboard.analysis'),
       },
