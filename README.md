@@ -26,6 +26,16 @@ remove .husky pre-commit
 
 axios [index.d.ts](https://github.com/axios/axios/blob/master/index.d.ts)  interface AxiosRequestConfig
 
+## Build
+
+驗證 Build 後所建立的檔案
+
+npm serve
+安裝 serve 套件 於 Terminal 中輸入 `npm install -g serve`
+
+驗證 Build 後所建立的檔案
+於 Terminal 中輸入 `serve -s dist`
+
 ## Deploy
 
 [github-actions-demo](https://github.com/JacobHsu/github-actions-demo/blob/master/.github/workflows/ci.yml)
