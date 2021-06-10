@@ -222,9 +222,12 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
 }
 export const defHttp = createAxios();
 
+// https://vvbin.cn/doc-next/guide/basic/mock.html#多个接口地址
 // other api url
-// export const otherHttp = createAxios({
-//   requestOptions: {
-//     apiUrl: 'xxx',
-//   },
-// });
+export const otherHttp = createAxios({
+  requestOptions: {
+    // 注意 /mock-api/ FAIL`/` response: strict-origin-when-cross-origin
+    // 'http://localhost:6580/mock-api'
+    apiUrl:  'https://vben-node-mock-jacobhsu.vercel.app/mock-api' // globSetting.apiOtherUrl,
+  },
+});

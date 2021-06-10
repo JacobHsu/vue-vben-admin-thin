@@ -12,6 +12,7 @@ import { getAuthCache, setAuthCache } from '/@/utils/auth';
 import { GetUserInfoModel, LoginParams } from '/@/api/sys/model/userModel';
 
 import { getUserInfo, loginApi } from '/@/api/sys/user';
+import { getMockUserInfo } from '/@/api/sys/mock';
 
 import { useI18n } from '/@/hooks/web/useI18n';
 import { useMessage } from '/@/hooks/web/useMessage';
@@ -85,9 +86,14 @@ export const useUserStore = defineStore({
         const { goHome = true, mode, ...loginParams } = params;
         const data = await loginApi(loginParams, mode);
         const { token } = data;
-
         // save token
         this.setToken(token);
+
+        // Mock Test
+        const mockUserInfo = await getMockUserInfo()
+        // const { roles } = mockUserInfo;
+        console.log(1111, mockUserInfo)
+
         // get user info
         const userInfo = await this.getUserInfoAction();
 

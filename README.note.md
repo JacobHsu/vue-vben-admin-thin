@@ -95,3 +95,42 @@ export function loginApi(params: LoginParams, mode: ErrorMessageMode = 'modal') 
   );
 }
 ```
+
+## vercel api
+
+https://vben-node-mock-jacobhsu.vercel.app/mock-api/v1/user
+
+src\utils\http\axios\index.ts
+
+```js
+
+// https://vvbin.cn/doc-next/guide/basic/mock.html#多个接口地址
+// other api url
+export const otherHttp = createAxios({
+  requestOptions: {
+    // 注意 /mock-api/ FAIL`/` response: strict-origin-when-cross-origin
+    // 'http://localhost:6580/mock-api'
+    apiUrl:  'https://vben-node-mock-jacobhsu.vercel.app/mock-api' // globSetting.apiOtherUrl,
+  },
+});
+```
+
+src\api\sys\mock.ts
+
+```js
+import { otherHttp } from '/@/utils/http/axios';
+import { GetUserInfoModel } from './model/userModel';
+
+enum Api {
+  GetMockUserInfo = '/v1/user' // '/getMockUserInfo'
+}
+
+/**
+ * @description: getUserInfo
+ */
+export function getMockUserInfo() {
+  // return defHttp.get<GetUserInfoModel>({ url: Api.GetMockUserInfo });
+  return otherHttp.get<GetUserInfoModel>({ url: Api.GetMockUserInfo });
+}
+
+```
