@@ -1,16 +1,16 @@
-import type { VNodeChild } from 'vue';
-import type { PaginationProps } from './pagination';
-import type { FormProps } from '/@/components/Form';
+import type { VNodeChild } from "vue";
+import type { PaginationProps } from "./pagination";
+import type { FormProps } from "/@/components/Form";
 import type {
   ColumnProps,
   TableRowSelection as ITableRowSelection,
-} from 'ant-design-vue/lib/table/interface';
+} from "ant-design-vue/lib/table/interface";
 
-import { ComponentType } from './componentType';
-import { VueNode } from '/@/utils/propTypes';
-import { RoleEnum } from '/@/enums/roleEnum';
+import { ComponentType } from "./componentType";
+import { VueNode } from "/@/utils/propTypes";
+import { RoleEnum } from "/@/enums/roleEnum";
 
-export declare type SortOrder = 'ascend' | 'descend';
+export declare type SortOrder = "ascend" | "descend";
 
 export interface TableCurrentDataSource<T = Recordable> {
   currentDataSource: T[];
@@ -82,7 +82,7 @@ export interface GetColumnsParams {
   sort?: boolean;
 }
 
-export type SizeType = 'default' | 'middle' | 'small' | 'large';
+export type SizeType = "default" | "middle" | "small" | "large";
 
 export interface TableActionType {
   reload: (opt?: FetchParams) => Promise<void>;
@@ -341,7 +341,7 @@ export interface BasicTableProps<T = any> {
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout
    * @version 1.5.0
    */
-  tableLayout?: 'auto' | 'fixed' | string;
+  tableLayout?: "auto" | "fixed" | string;
 
   /**
    * the render container of dropdowns in table
@@ -400,7 +400,7 @@ export interface BasicColumn extends ColumnProps {
   }[];
 
   //
-  flag?: 'INDEX' | 'DEFAULT' | 'CHECKBOX' | 'RADIO' | 'ACTION';
+  flag?: "INDEX" | "DEFAULT" | "CHECKBOX" | "RADIO" | "ACTION";
   customTitle?: VueNode;
 
   slots?: Recordable;

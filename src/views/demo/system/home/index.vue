@@ -1,16 +1,9 @@
 <template>
   <div>
-    <BasicTable @register="registerTable">
-      <template #toolbar>
-        <a-button type="primary" @click="handleCreate"> 新增角色 </a-button>
-      </template>
+    <SimpleTable @register="registerTable">
       <template #action="{ record }">
         <TableAction
           :actions="[
-            {
-              icon: 'clarity:note-edit-line',
-              onClick: handleEdit.bind(null, record),
-            },
             {
               icon: 'ant-design:delete-outlined',
               color: 'error',
@@ -22,29 +15,23 @@
           ]"
         />
       </template>
-    </BasicTable>
-    <RoleDrawer @register="registerDrawer" @success="handleSuccess" />
+    </SimpleTable>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { BasicTable, useTable, TableAction } from "/@/components/Table";
-import { getRoleListByPage } from "/@/api/demo/system";
-
-import { useDrawer } from "/@/components/Drawer";
-import RoleDrawer from "./RoleDrawer.vue";
-
+import { SimpleTable, useTable, TableAction } from "/@/components/Table";
+import { getMockListByPage } from "/@/api/demo/system";
 import { columns, searchFormSchema } from "./role.data";
 
 export default defineComponent({
   name: "RoleManagement",
-  components: { BasicTable, RoleDrawer, TableAction },
+  components: { SimpleTable, TableAction },
   setup() {
-    const [registerDrawer, { openDrawer }] = useDrawer();
-    const [registerTable, { reload }] = useTable({
+    const [registerTable] = useTable({
       title: "角色列表",
-      api: getRoleListByPage,
+      api: getMockListByPage,
       columns,
       formConfig: {
         labelWidth: 120,
@@ -63,34 +50,13 @@ export default defineComponent({
       },
     });
 
-    function handleCreate() {
-      openDrawer(true, {
-        isUpdate: false,
-      });
-    }
-
-    function handleEdit(record: Recordable) {
-      openDrawer(true, {
-        record,
-        isUpdate: true,
-      });
-    }
-
     function handleDelete(record: Recordable) {
       console.log(record);
     }
 
-    function handleSuccess() {
-      reload();
-    }
-
     return {
       registerTable,
-      registerDrawer,
-      handleCreate,
-      handleEdit,
       handleDelete,
-      handleSuccess,
     };
   },
 });
