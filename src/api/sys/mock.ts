@@ -1,8 +1,8 @@
-import { otherHttp } from '/@/utils/http/axios';
-import { GetUserInfoModel } from './model/userModel';
+import { otherHttp } from "/@/utils/http/axios";
+import { GetUserInfoModel } from "./model/userModel";
 
 enum Api {
-  GetMockUserInfo = '/v1/user' // '/getMockUserInfo'
+  GetMockUserInfo = "/v1/user", // '/getMockUserInfo'
 }
 
 /**
