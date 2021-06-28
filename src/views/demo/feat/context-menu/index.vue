@@ -1,5 +1,13 @@
 <template>
   <PageWrapper title="右键菜单示例">
+    <CollapseContainer title="Tooltip">
+      <Tooltip placement="top">
+        <template #title>
+          <span>{{ textUrl }} </span>
+        </template>
+        Tooltip will show when mouse enter.
+      </Tooltip>
+    </CollapseContainer>
     <CollapseContainer title="Simple">
       <a-button type="primary" @contextmenu="handleContext"> Right Click on me </a-button>
     </CollapseContainer>
@@ -11,16 +19,19 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import { Tooltip } from "ant-design-vue";
 import { useContextMenu } from "/@/hooks/web/useContextMenu";
 import { CollapseContainer } from "/@/components/Container";
 import { useMessage } from "/@/hooks/web/useMessage";
 import { PageWrapper } from "/@/components/Page";
 
 export default defineComponent({
-  components: { CollapseContainer, PageWrapper },
+  components: { CollapseContainer, PageWrapper, Tooltip },
   setup() {
     const [createContextMenu] = useContextMenu();
     const { createMessage } = useMessage();
+    const textUrl = "https://antdv.com/components/tooltip-cn/";
+
     function handleContext(e: MouseEvent) {
       createContextMenu({
         event: e,
@@ -79,7 +90,7 @@ export default defineComponent({
       });
     }
 
-    return { handleContext, handleMultipleContext };
+    return { handleContext, handleMultipleContext, textUrl };
   },
 });
 </script>
